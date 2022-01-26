@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function inputText(){
+            var txt = $("input:text").val()
+            // js : value()
+            // jq : val()
+            alert(txt)
+        }
+
+        function inputRadio(){
+            var radioVal = $("input:radio").val()
+            $("#a").html(radioVal)
+            // js : innerHTML
+            // jq : html
+        }
+
+        function inputCheck(){
+            var checkVal = $("input:checkbox").val()
+            $("#a").html(checkVal)
+        }
+
+        // 얘는 실행할려면 $(function(){}안에 넣어야 한다! 아래 body를 읽기 전이기 때문에 
+        /*
+        $(function(){
+            $("select").change(function(){
+                var option = $("select > option:selected")
+                alert(option.val())
+                alert($("select > option").index(option))
+            })
+        })
+        */
+    </script>
+
+</head>
+<body>
+
+    <form>
+        <input type="text">
+        <br>
+        <input type="button" value="선택" onclick="inputText()">
+        <br>
+        <input type="radio" value="radio val" onclick="inputRadio()">radio
+        <br>
+        <input type="checkbox" value="check val" onclick="inputCheck()">check
+        <br>
+        <div id="a"></div>
+        <select>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+        </select>
+    </form>
+
+    <!-- body를 읽고 이걸 읽기 때문에 사용이 가능! -->
+    <script>
+        $("select").change(function(){
+            // :selected 선택자는 미리 선택된 옵션 요소를 선택한다.
+            var option = $("select > option:selected")
+            alert(option.val())
+            // alert($("select > option").index(option))
+            })
+    </script>
+
+</body>
+</html>
